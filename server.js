@@ -17,6 +17,13 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 for routers  , Routing code
+
+app.post("/create-item", (req, res) => {
+  console.log(req.body);
+  res.json({ test: "success" });
+
+  // TODO: code with db here
+});
 // app.get("/", function (req, res) {
 //   res.end("hello world By ME");
 // });
