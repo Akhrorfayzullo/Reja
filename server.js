@@ -17,11 +17,14 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 for routers  , Routing code
+// app.get("/", function (req, res) {
+//   res.end("hello world By ME");
+// });
+// app.get("/gift", function (req, res) {
+//   res.end(`<h1>You came to my page</h1>`);
+// });
 app.get("/", function (req, res) {
-  res.end("hello world By ME");
-});
-app.get("/gift", function (req, res) {
-  res.end(`<h1>You came to my page</h1>`);
+  res.render("harid");
 });
 
 const server = http.createServer(app);
