@@ -10,10 +10,30 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    `
   </head>
   <body style="background-color: #b8bbd1">
     <div class="container">
       <h1 class="display-4 text-center py-1">Reja va Maqsadlar</h1>
+
+      <div class="jumbotron p-3 shadow-sm">
+        <form id="create-form" action="/create-item" method="POST">
+          <div class="d-flex align-items-center">
+            <input
+              id="create-field"
+              name="item"
+              autofocus
+              autocomplete="off"
+              class="form-control mr-3"
+              type="text"
+              style="flex: 1"
+            />
+            <button class="btn btn-primary" style="border-radius: 20px">
+              Yangi Harid Qushish
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </body>
 </html>
