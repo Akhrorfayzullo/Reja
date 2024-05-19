@@ -14,19 +14,21 @@
   <body>
     <div class="frame">
       <div class="main_frame">
+        <!-- ------------ left fram -->
         <div class="left_frame">
+          <!-- left 1 -->
           <div class="left_1">
             <div class="left_1-1">
               <img
-                src="../public/./author/images/profile.png"
+                src="images/profile.jpg"
                 width="156px"
                 height="142px"
-                alt="No image"
+                alt=""
               />
             </div>
             <div class="left_1-2"><%=user.name%></div>
-            <div class="left_1-3"></div>
-            <div class="left_icons">
+            <div class="left_1-3"><%=user.profession%></div>
+            <div class="left-icons">
               <a class="link_href" href="">
                 <div class="icon">
                   <img src="icon/facebook.svg" class="icon-1" />
@@ -44,7 +46,7 @@
               </a>
               <a class="link_href" href="">
                 <div class="icon">
-                  <img src="icon/linkedin.svg" class="icon-1" />
+                  <img src="icon/linkeding.svg" class="icon-1" />
                 </div>
               </a>
               <a class="link_href" href="">
@@ -54,23 +56,244 @@
               </a>
               <a class="link_href" href="">
                 <div class="icon">
-                  <img src="icon/dribble.svg" class="icon-1" />
+                  <img src="icon/dribbble.svg" class="icon-1" />
                 </div>
               </a>
             </div>
           </div>
+
+          <!-- left 2 -->
           <div class="marginer"></div>
-          <div class="left_2"></div>
+          <div class="left_2">
+            <div class="left_2-1">
+              <div class="tbox">Age:</div>
+              <p class="text-p"><%=user.age%></p>
+            </div>
+            <div class="left_2-1">
+              <div class="tbox">Residence:</div>
+              <p class="text-p"><%=user.residence%></p>
+            </div>
+            <div class="left_2-1">
+              <div class="tbox">Freelance:</div>
+              <p class="available"><%=user.work_place%></p>
+            </div>
+            <div class="left_2-1">
+              <div class="tbox">Address:</div>
+              <p class="text-p"><%=user.adress%></p>
+            </div>
+          </div>
+
+          <!-- left 3rd section -->
           <div class="marginer"></div>
-          <div class="left_3"></div>
+          <div class="left_3">
+            <div class="header">Languages</div>
+            <div class="main-box">
+              <div class="lang_box">
+                <div><%=user.Languages[0]%></div>
+                <div>100%</div>
+              </div>
+              <div class="level-box">
+                <div class="lang-1"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="lang_box">
+                <div><%=user.Languages[1]%></div>
+                <div>70%</div>
+              </div>
+              <div class="level-box">
+                <div class="lang-2"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="lang_box">
+                <div><%=user.Languages[2]%></div>
+                <div>80%</div>
+              </div>
+              <div class="level-box">
+                <div class="lang-3"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Skills -->
           <div class="marginer"></div>
-          <div class="left_4"></div>
+          <div class="left_4">
+            <div class="header">Skills</div>
+            <div class="main-box">
+              <div class="s_box">
+                <div><%=user.skills[0]%></div>
+                <div>90%</div>
+              </div>
+
+              <div class="level-box">
+                <div class="html"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="s_box">
+                <div><%=user.skills[1]%></div>
+                <div>85%</div>
+              </div>
+
+              <div class="level-box">
+                <div class="css"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="s_box">
+                <div><%=user.skills[2]%></div>
+                <div>70%</div>
+              </div>
+
+              <div class="level-box">
+                <div class="nodejs"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="s_box">
+                <div><%=user.skills[3]%></div>
+                <div>75%</div>
+              </div>
+
+              <div class="level-box">
+                <div class="python"></div>
+              </div>
+            </div>
+            <div class="main-box">
+              <div class="s_box">
+                <div><%=user.skills[4]%></div>
+                <div>85%</div>
+              </div>
+
+              <div class="level-box">
+                <div class="reactjs"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- extra skills -->
           <div class="marginer"></div>
-          <div class="left_5"></div>
+          <div class="left_5">
+            <div class="header">Extra Skills</div>
+
+            <div class="main_box">
+              <img src="icon/icons.svg" alt="no img" />
+              <div class="extra_skills"><%=user.extra_skills[0]%></div>
+            </div>
+            <div class="main_box">
+              <img src="icon/icons.svg" alt="no img" />
+              <div class="extra_skills"><%=user.extra_skills[1]%></div>
+            </div>
+            <div class="main_box">
+              <img src="icon/icons.svg" alt="no img" />
+              <div class="extra_skills"><%=user.extra_skills[2]%></div>
+            </div>
+            <div class="main_box">
+              <img src="icon/icons.svg" alt="no img" />
+              <div class="extra_skills"><%=user.extra_skills[3]%></div>
+            </div>
+          </div>
           <div class="marginer"></div>
         </div>
-        <div class="midd_frame">rrf</div>
-        <div class="right_frame"></div>
+
+        <!-- --------------------------- mid  frame -->
+        <div class="mid_frame">
+          <!-- mid frame one -->
+          <div class="mid_frame-1">
+            <div class="left_box">
+              <div class="header_text">
+                Doctor neurologists in <br />
+                OHSU Hospital
+              </div>
+              <div class="mid_about">
+                Lorem ipsum dolor sit amet, consectetur adipiscing <br />
+                elit. Et, volutpat feugiat placerat lobortis. Natoque <br />
+                rutrum semper sed suspendisse nunc lectus.
+              </div>
+              <button class="mid_frame_btn">
+                <span>hire me ></span>
+                <!-- <img src="b/my_image.png" /> -->
+              </button>
+            </div>
+            <div class="right_box">
+              <img
+                class="image"
+                alt="middle frame image"
+                src="images/my_image.png"
+              />
+            </div>
+          </div>
+
+          <!-- mid frame two -->
+
+          <div class="mid_frame-2">
+            <div class="mid_frame-2-1">
+              <div class="header">My Services</div>
+              <div class="service">
+                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
+                amet sint. Velit officia consequat duis enim velit mollit. lorem
+                ipsum
+              </div>
+            </div>
+
+            <div class="mid_frame-2-2">
+              <div class="box">
+                <img src="box_images/coding.png" class="icon" />
+                <div class="box-title">Web Development</div>
+                <div class="box-desc">Blog, E-Commerce</div>
+              </div>
+              <div class="box">
+                <img src="box_images/illustration.png" class="icon" />
+                <div class="box-title">UI/UX Design</div>
+                <div class="box-desc">Mobile App, Website Design</div>
+              </div>
+              <div class="box">
+                <img src="box_images/Microphone.svg" class="icon" />
+                <div class="box-title">Sound Designing</div>
+                <div class="box-desc">Voice over, Beat making</div>
+              </div>
+              <div class="box">
+                <img src="box_images/game-development.png" class="icon" />
+                <div class="box-title">Game Design</div>
+                <div class="box-desc">Character Design, Props Objects</div>
+              </div>
+              <div class="box">
+                <img src="box_images/Photographer.png" class="icon" />
+                <div class="box-title">Photography</div>
+                <div class="box-desc">Portrait, Product Photography</div>
+              </div>
+              <div class="box">
+                <div class="box-title">Advertising</div>
+                <div class="box-desc">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae
+                  nulla diam in ac dictum a urna viverra morbi.
+                </div>
+                <div class="order-now">order now</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ---------------- last frame -->
+        <div class="right_frame">
+          <div class="right_frame-box">
+            <div class="theme">
+              <img src="icon/Contrast.svg" alt="no img" class="image" />
+            </div>
+
+            <div class="icons">
+              <div class="popup-box">
+                <img src="icon/Home.png" alt="home" class="image" />
+              </div>
+              <img src="icon/cv.png" alt="blog" class="image" />
+              <img src="icon/cv.png" alt="cv" class="image" />
+              <img src="icon/cv.png" alt="portfolio" class="image" />
+              <img src="icon/Contact.png" alt="contact" class="image" />
+              <img src="icon/Contact.png" alt="contact" class="image" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>
