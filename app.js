@@ -7,6 +7,7 @@ const fs = require("fs");
 const { Module } = require("module");
 
 //MongoDB connect
+const db = require("./server").db();
 
 let user;
 fs.readFile("database/user.json", "utf8", (err, data) => {
