@@ -1,53 +1,30 @@
-console.log(`Let's start Server`);
-// npm  install express --save
-const express = require("express");
+const app = require("./app");
 const http = require("http");
-const app = express();
-const fs = require("fs");
+const mongodb = require("mongodb");
 
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-  if (err) {
-    console.log("ERROR: ", err);
-  } else {
-    user = JSON.parse(data);
+let db;
+const connectionString =
+  "mongodb+srv://alion:Dongseouz1$@cluster0.rfkmznm.mongodb.net/";
+
+mongodb.connect(
+  connectionString,
+  {
+    useNewUrlTopology: true,
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) console.log("Error on MongoDB");
+    else {
+      console.log("Connected to MongoDB");
+      module.exports = client;
+      const app = require("./app");
+      const server = http.createServer(app);
+      let PORT = 3000;
+      server.listen(PORT, function () {
+        console.log(
+          `Yeey It is working successfully on port ${PORT}, http://localhost:${PORT}`
+        );
+      });
+    }
   }
-});
-
-// 1  kirish kods
-
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-//2 Session code ?
-
-// 3  Views code  npm i ejs
-app.set("views", "views");
-app.set("view engine", "ejs");
-
-// 4 for routers  , Routing code
-
-app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "success" });
-
-  // TODO: code with db her
-});
-
-app.get("/", function (req, res) {
-  res.render("harid");
-});
-
-app.get("/author", function (req, res) {
-  res.render("author", { user: user });
-});
-
-const server = http.createServer(app);
-
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(`Yeey It is working successfully on port ${PORT}`);
-});
-
-// npm i nodemon
+);
