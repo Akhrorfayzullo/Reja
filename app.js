@@ -8,15 +8,7 @@ const { Module } = require("module");
 
 //MongoDB connect
 const db = require("./server").db();
-
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-  if (err) {
-    console.log("ERROR: ", err);
-  } else {
-    user = JSON.parse(data);
-  }
-});
+// console.log("app:", db[0]);
 
 // 1  kirish kods
 
@@ -31,16 +23,33 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4 for routers  , Routing code
-
 app.post("/create-item", (req, res) => {
   console.log(req.body);
-  res.json({ test: "success" });
-
-  // TODO: code with db her
+  // res.end("working");
+  const new_reja = req.body.reja;
+  // console.log("new_plan: ", new_plan);
+  db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
+    if (err) {
+      console.log(err);
+      res.end("went smth wrong");
+    } else {
+      res.end("successfully added");
+    }
+  });
 });
 
-app.get("/", function (req, res) {
-  res.render("reja");
+app.get("/", (req, res) => {
+  db.collection("plans")
+    .find()
+    .toArray((err, data) => {
+      if (err) {
+        console.log(err);
+        res.end("(app.get/) something went wrong");
+      } else {
+        console.log("Collection Data: ", data);
+        res.render("reja");
+      }
+    });
 });
 
 app.get("/author", function (req, res) {
