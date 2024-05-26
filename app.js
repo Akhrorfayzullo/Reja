@@ -8,6 +8,7 @@ const { Module } = require("module");
 
 //MongoDB connect
 const db = require("./server").db();
+const mongodb = require("mongodb");
 // console.log("app:", db[0]);
 
 // 1  kirish kods
@@ -30,12 +31,8 @@ app.post("/create-item", (req, res) => {
   const new_reja = req.body.reja;
   // console.log("new_plan: ", new_plan);
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log(err);
-      res.end("went smth wrong");
-    } else {
-      res.end("successfully added");
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
   });
 });
 
@@ -52,6 +49,22 @@ app.get("/", (req, res) => {
         res.render("reja", { items: data });
       }
     });
+});
+
+app.post("/delete-item", function (req, res) {
+  const id = req.body.id;
+  console.log("Being delated: ", id);
+
+  db.collection("plans").deleteOne(
+    { _id: new mongodb.ObjectId(id) },
+    (err, data) => {
+      if (err) {
+        console.log("Error : ", err);
+      } else {
+        res.json({ state: "success" });
+      }
+    }
+  );
 });
 
 app.get("/author", function (req, res) {
