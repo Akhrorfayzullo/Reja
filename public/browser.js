@@ -56,8 +56,45 @@ document.addEventListener("click", function (event) {
     }
   }
 
-  // edit
+  // edit button
   if (event.target.classList.contains("edit-me")) {
-    console.log("You clicked edit button");
+    let userInput = prompt(
+      "Inputni ozgartiring",
+      event.target.parentElement.parentElement
+        .querySelector(".item-text")
+        .innerHTML.trim()
+    );
+
+    if (userInput) {
+      axios
+        .post("/edit-item", {
+          id: event.target.getAttribute("data-id"),
+          new_input: userInput,
+        })
+        .then((response) => {
+          console.log(response.data);
+
+          event.target.parentElement.parentElement.querySelector(
+            ".item-text"
+          ).innerHTML = userInput;
+        })
+        .catch((err) => {
+          console.log("smth went wrong");
+        });
+    }
   }
+  // Delete all
+  document.getElementById("delete-all").addEventListener("click", function () {
+    axios
+      .post("/delete-all", { delete_all: true })
+      .then((response) => {
+        alert(response.data.state);
+        document.querySelectorAll(".list-group-item").forEach((item) => {
+          item.remove();
+        });
+      })
+      .catch((err) => {
+        console.log("smth went wrong");
+      });
+  });
 });

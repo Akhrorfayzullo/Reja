@@ -39,7 +39,7 @@
         </form>
       </div>
       <ul id="item-list" class="list-group pb-5">
-				<% items.map(item=> { %>
+				<% items.map((item) => { %>
 					<li style="margin-bottom: 4px;"
 						class="list-group-item list-group-item-info align-items-center d-flex justify-content-between">
 						<span class="item-text">
@@ -58,7 +58,7 @@
 			</ul>
 
 			</ul>
-      <button>Hamma rejalarni ochirish</button>
+      <button id="delete-all" class="btn btn-danger">Hamma rejalarni ochirish</button>
     </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/browser.js"></script>

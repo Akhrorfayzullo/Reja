@@ -67,6 +67,30 @@ app.post("/delete-item", function (req, res) {
   );
 });
 
+// Edit
+app.post("/edit-item", (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  db.collection("plan").findOneAndUpdate(
+    {
+      _id: new mongodb.ObjectId(data.id),
+    },
+    { $set: { plan: data.new_input } },
+    (err, data) => {
+      res.json({ state: "success" });
+    }
+  );
+});
+// delete all
+app.post("/delete-all", (req, res) => {
+  if (req.body.delete_all) {
+    db.collection("plan").deleteMany(() => {
+      res.json({ state: " plans are deleted successfully" });
+    });
+  }
+});
+
 app.get("/author", function (req, res) {
   res.render("author", { user: user });
 });
