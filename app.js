@@ -68,9 +68,7 @@ app.post("/delete-item", function (req, res) {
 });
 
 // Edit
-// edit an item
 app.post("/edit-item", (req, res) => {
-  console.log("user entered /edit-item");
   const data = req.body;
   console.log(data);
 
@@ -88,7 +86,7 @@ app.post("/edit-item", (req, res) => {
 app.post("/delete-all", (req, res) => {
   if (req.body.delete_all) {
     db.collection("plans").deleteMany(() => {
-      res.json({ state: " plans are deleted" });
+      res.json({ state: "hamma rejalar ochirildi" });
     });
   }
 });
