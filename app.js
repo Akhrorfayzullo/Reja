@@ -72,7 +72,7 @@ app.post("/edit-item", (req, res) => {
   const data = req.body;
   console.log(data);
 
-  db.collection("plan").findOneAndUpdate(
+  db.collection("plans").findOneAndUpdate(
     {
       _id: new mongodb.ObjectId(data.id),
     },
@@ -85,8 +85,8 @@ app.post("/edit-item", (req, res) => {
 // delete all
 app.post("/delete-all", (req, res) => {
   if (req.body.delete_all) {
-    db.collection("plan").deleteMany(() => {
-      res.json({ state: " plans are deleted successfully" });
+    db.collection("plans").deleteMany(() => {
+      res.json({ state: " plans are deleted" });
     });
   }
 });

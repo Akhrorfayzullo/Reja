@@ -88,13 +88,13 @@ document.addEventListener("click", function (event) {
     axios
       .post("/delete-all", { delete_all: true })
       .then((response) => {
-        alert(response.data.state);
+        // alert(response.data.state);
         document.querySelectorAll(".list-group-item").forEach((item) => {
           item.remove();
         });
       })
       .catch((err) => {
-        console.log("smth went wrong");
+        console.log("went smth wrong");
       });
   });
 });
