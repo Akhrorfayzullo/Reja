@@ -68,7 +68,9 @@ app.post("/delete-item", function (req, res) {
 });
 
 // Edit
+// edit an item
 app.post("/edit-item", (req, res) => {
+  console.log("user entered /edit-item");
   const data = req.body;
   console.log(data);
 
@@ -76,7 +78,7 @@ app.post("/edit-item", (req, res) => {
     {
       _id: new mongodb.ObjectId(data.id),
     },
-    { $set: { plan: data.new_input } },
+    { $set: { reja: data.new_input } },
     (err, data) => {
       res.json({ state: "success" });
     }

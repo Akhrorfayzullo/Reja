@@ -59,7 +59,7 @@ document.addEventListener("click", function (event) {
   // edit button
   if (event.target.classList.contains("edit-me")) {
     let userInput = prompt(
-      "Inputni ozgartiring",
+      "Add something new or modify it!",
       event.target.parentElement.parentElement
         .querySelector(".item-text")
         .innerHTML.trim()
@@ -79,22 +79,22 @@ document.addEventListener("click", function (event) {
           ).innerHTML = userInput;
         })
         .catch((err) => {
-          console.log("smth went wrong");
+          console.log("Please, try again later!");
         });
     }
   }
-  // Delete all
-  document.getElementById("delete-all").addEventListener("click", function () {
-    axios
-      .post("/delete-all", { delete_all: true })
-      .then((response) => {
-        // alert(response.data.state);
-        document.querySelectorAll(".list-group-item").forEach((item) => {
-          item.remove();
-        });
-      })
-      .catch((err) => {
-        console.log("went smth wrong");
+});
+// Delete all
+document.getElementById("delete-all").addEventListener("click", function () {
+  axios
+    .post("/delete-all", { delete_all: true })
+    .then((response) => {
+      // alert(response.data.state);
+      document.querySelectorAll(".list-group-item").forEach((item) => {
+        item.remove();
       });
-  });
+    })
+    .catch((err) => {
+      console.log("went smth wrong");
+    });
 });
