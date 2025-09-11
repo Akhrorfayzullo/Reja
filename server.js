@@ -2,7 +2,7 @@ console.log(`Let's start Server`);
 // npm  install express --save
 const express = require("express");
 const http = require("http");
-const app = express();
+const app = express(); // This creates your web server using Express.
 
 // 1  kirish kods
 
