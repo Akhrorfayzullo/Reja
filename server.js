@@ -25,6 +25,7 @@ app.get("/gift", function (req, res) {
 });
 
 const server = http.createServer(app);
+// Tells Express to use EJS, a tool for making dynamic HTML pages.
 
 let PORT = 3000;
 server.listen(PORT, function () {
