@@ -21,8 +21,13 @@ const createForm = document.getElementById("create-form");
 let createField = document.getElementById("create-field");
 
 createForm.addEventListener("submit", (event) => {
-  event.preventDefault();
 
+  event.preventDefault();
+  if (createField.value.trim() === "") {
+    alert("Please enter a reja before submitting.");
+    createField.focus();
+    return; // stop here
+  }
   axios
     .post("/create-item", { reja: createField.value })
     .then((response) => {
